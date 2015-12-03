@@ -1,20 +1,33 @@
 'use strict';
 
 var module = angular.module('NNF.controller.secouristes', [
-    'NNF.services.test'
+    'NNF.services.users'
 ]);
 
 module.controller('SecoursCtrl', ['$routeParams', '$location',
-    'TestService',
-    function ($routeParams, $location, testService) {
+    'UsersService',
+    function ($routeParams, $location, UsersService) {
         var that = this;
 
-        testService.get({},
-            function (data) {
+        this.connect = function () {
+            if (this.login == null || this.password == null) {
+                return true;
+            } else if (this.login.trim().length < 1 || this.password.trim().length < 1) {
+                return false;
+            } else {
+                UsersService.get({
+                    login: that.login,
+                    pwd: that.password
+                }, {},
+                    function (data) {
+                        if (data == null) {
+                            return false;
+                        }
+                    },
+                    function (httpResponse) {
 
-            },
-            function (httpResponse) {
-
-            });
+                    });
+            }
+        }
     }
 ]);

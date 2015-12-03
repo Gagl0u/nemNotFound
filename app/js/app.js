@@ -6,15 +6,15 @@ var app = angular.module('NNF', [
     'ngResource',
     'ngRoute',
     'NNF.services.test',
-    'NNF.controller.proches',
-    'NNF.controller.victimes',
+    'NNF.services.users',
+    'NNF.controller.populations',
     'NNF.controller.secouristes'
 ]);
 
 app.config(
     function ($routeProvider) {
         $routeProvider
-        .when('/', {
+            .when('/', {
                 templateUrl: 'app/partials/default.html'
             })
             .when('/secouristes', {
@@ -22,15 +22,10 @@ app.config(
                 controller: 'SecoursCtrl',
                 controllerAs: 'secoursCtrl'
             })
-            .when('/victimes', {
-                templateUrl: 'app/partials/victimes/victimes.html',
-                controller: 'VictimesCtrl',
-                controllerAs: 'victimesCtrl'
-            })
-            .when('/proches', {
-                templateUrl: 'app/partials/proches/proches.html',
-                controller: 'ProchesCtrl',
-                controllerAs: 'prochesCtrl'
+            .when('/populations', {
+                templateUrl: 'app/partials/populations/populations.html',
+                controller: 'PopulationsCtrl',
+                controllerAs: 'populationsCtrl'
             })
             .otherwise({
                 redirectTo: '/'

@@ -12,23 +12,25 @@
 <body>
   <div class="col-md-12">
     <ng-include src="'./app/partials/menus/navbar.html'"></ng-include>
+    <ng-include src="'./app/partials/menus/sidebar.html'"></ng-include>
 
-    <div class="col-md-12" ng-view></div>
-    <script src="./node_modules/angular-route/angular-route.js"></script>
-    <script src="./node_modules/angular-resource/angular-resource.js"></script>
-    <script src="./node_modules/angular-ui-bootstrap/ui-bootstrap.js"></script>
-    <script src="./node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="./node_modules/angular-route/angular-route.js"></script>
-    <script src="./node_modules/bootstrap/dist/js/jquery.js"></script>
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="./app/js/app.js"></script>
-
-    <!--everything new file come after this-->
-    <script src="./app/js/controller/ProchesCtrls.js"></script>
-    <script src="./app/js/controller/SecouristesCtrls.js"></script>
-    <script src="./app/js/controller/VictimesCtrls.js"></script>
-    <script src="./app/js/services/TestServices.js"></script>
+    <div class="col-xs-12 col-sm-9" ng-view></div>
   </div>
+  <script src="./node_modules/angular-route/angular-route.js"></script>
+  <script src="./node_modules/angular-resource/angular-resource.js"></script>
+  <script src="./node_modules/angular-ui-bootstrap/ui-bootstrap.js"></script>
+  <script src="./node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="./node_modules/angular-route/angular-route.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/jquery.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="./app/js/app.js"></script>
+
+  <!--everything new file come after this-->
+  <script src="./app/js/controller/PopulationsCtrls.js"></script>
+  <script src="./app/js/controller/SecouristesCtrls.js"></script>
+  <script src="./app/js/services/TestServices.js"></script>
+  <script src="./app/js/services/UserServices.js"></script>
+
 </body>
 
 </html>
