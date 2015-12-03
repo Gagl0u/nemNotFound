@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html ng-app="NNF">
 <!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
@@ -9,29 +10,35 @@
   <title>My AngularJS App</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="app/components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="app/css/app.css">
-  <script src="app/components/bootstrap/dist/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="./app/css/app.css">
+  <link rel="stylesheet" href="./app/components/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-
+<div>coucou</div>
   <div ng-view></div>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-  <script rel="stylesheet" href="app/components/angular/angular.min.js"></script>
-  <script src="app/components/angular-route/angular-route.min.js"></script>
-  <script src="app/components/angular-ui-bootstrap/index.js"></script>
-  <script src="app/components/angular-ui-bootstrap/ui-bootstrap.js"></script>
-  <script src="app/components/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
-  <script src="app/js/app.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+
+  <!--<script rel="stylesheet" href="./app/components/bootstrap/dist/js/jquery.js"></script>-->
+  <!--<script rel="stylesheet" href="./app/components/bootstrap/dist/js/jquery-ui.js"></script>-->
+  <!--<script src="./app/components/bootstrap/dist/js/bootstrap.js"></script>-->
+  <!--<script rel="stylesheet" href="./app/components/angular/angular.js"></script>-->
+  <!--<script rel="stylesheet" href="./app/components/angular/index.js"></script>-->
+
+  <script src="./app/components/angular-route/angular-route.js"></script>
+  <script src="./app/components/angular-route/index.js"></script>
+  <script src="./app/components/angular-ui-bootstrap/ui-bootstrap.js"></script>
+  <script src="./app/components/angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
+  
+  <script src="./app/js/app.js"></script>
   <!--everything new file come after this-->
-  <script src="app/js/controller/TestCtrls.js"></script>
-  <script src="app/js/services/TestServices.js"></script>
+  <script src="./app/js/controller/TestCtrls.js"></script>
+  <script src="./app/js/services/TestServices.js"></script>
 </body>
 </html>

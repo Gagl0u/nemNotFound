@@ -3,6 +3,7 @@
 /* App Module */
 
 var app = angular.module('NNF', [
+    'angular',
     'ngRoute',
     'ui-bootstrap',
     'NNF.ctrl.test',
@@ -19,7 +20,7 @@ app.config(
                     controllerAs: 'testCtrl'
                 })
                 .otherwise({
-                    redirectTo: '/'
+                    redirectTo: '#/'
                 });
         }
     ]
