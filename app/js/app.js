@@ -1,12 +1,26 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+/* App Module */
+
+var app = angular.module('NNF', [
+    'ngRoute',
+    'ui-bootstrap',
+    'NNF.ctrl.test',
+    'NNF.services.test'
+]);
+
+app.config(
+    ['$routeProvider',
+        function($routeProvider) {
+            $routeProvider
+                .when('/test/:testId', {
+                    templateUrl: 'app/partials/view1/view1.html',
+                    controller: 'TestCtrl',
+                    controllerAs: 'testCtrl'
+                })
+                .otherwise({
+                    redirectTo: '/'
+                });
+        }
+    ]
+);
