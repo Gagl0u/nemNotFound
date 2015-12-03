@@ -17,3 +17,9 @@
   list-style-type: none;
 }
 
+.footer{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  background-color: #e1e1e1;
+}
