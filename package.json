@@ -1,26 +1,10 @@
 {
-  "name": "angular-seed",
+  "name": "nemNotFound",
   "private": true,
   "version": "0.0.0",
   "description": "A starter project for AngularJS",
-  "repository": "",
+  "repository": "https://github.com/arthurLeDref/nemNotFound.git",
   "license": "MIT",
   "devDependencies": {
-  },
-  "scripts": {
-    "postinstall": "bower install",
-
-    "prestart": "npm install",
-    "start": "http-server -a localhost -p 8000 -c-1",
-
-    "pretest": "npm install",
-    "test": "karma start karma.conf.js",
-    "test-single-run": "karma start karma.conf.js  --single-run",
-
-    "preupdate-webdriver": "npm install",
-    "update-webdriver": "webdriver-manager update",
-
-    "preprotractor": "npm run update-webdriver",
-    "protractor": "protractor e2e-tests/protractor.conf.js",
- }
+  }
 }

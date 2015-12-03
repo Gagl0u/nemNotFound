@@ -3,25 +3,22 @@
 /* App Module */
 
 var app = angular.module('NNF', [
-    'angular',
+    'ngResource',
     'ngRoute',
-    'ui-bootstrap',
-    'NNF.ctrl.test',
-    'NNF.services.test'
+    'NNF.services.test',
+    'NNF.controller.test'
 ]);
 
 app.config(
-    ['$routeProvider',
-        function($routeProvider) {
-            $routeProvider
-                .when('/test/:testId', {
-                    templateUrl: 'app/partials/view1/view1.html',
-                    controller: 'TestCtrl',
-                    controllerAs: 'testCtrl'
-                })
-                .otherwise({
-                    redirectTo: '#/'
-                });
-        }
-    ]
-);
+    function ($routeProvider) {
+        $routeProvider
+            .when('/test/:testId', {
+                templateUrl: 'app/partials/view1/view1.html',
+                controller: 'TestCtrl',
+                controllerAs: 'testCtrl'
+            })
+            .otherwise({
+                redirectTo: 'index.html'
+            });
+    }
+    );

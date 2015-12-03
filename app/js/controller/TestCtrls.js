@@ -1,15 +1,14 @@
 'use strict';
 
-var module = angular.module('NNF.ctrl.test', [
-    'ui.bootstrap',
+var module = angular.module('NNF.controller.test', [
     'NNF.services.test'
 ]);
 
 module.controller('TestCtrl', ['$routeParams', '$location',
-'testService',
-    function($routeParams, $location, testService) {
+    'testService',
+    function ($routeParams, $location, testService) {
         var that = this;
-        this.id=$routeParams.testId;
-        
+        this.id = $routeParams.testId;
+
     }
 ]);

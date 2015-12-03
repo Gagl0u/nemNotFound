@@ -5,11 +5,11 @@ var module = angular.module('NNF.services.test', [
 ]);
 
 module.factory('testService', ['$resource',
-    function(config, $resource) {
+    function (config, $resource) {
         return $resource('http://test.com/', {}, {
             list: {
                 metod: 'GET',
-                url:'http://test.com/accountDomains',
+                url: 'http://test.com/accountDomains',
                 isArray: true
             },
             get: {
