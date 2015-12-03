@@ -4,13 +4,14 @@
   <title>Hello AngularJS</title>
   <meta charset="UTF-8">
   <script src="https://code.angularjs.org/1.4.1/angular.js"></script>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./app/css/app.css">
 </head>
 
 <body>
   <div class="row col-md-12">
     <ng-include src="'./app/partials/menus/navbar.html'"></ng-include>
-    <ng-include src="'./app/partials/menus/menu.html'"></ng-include>
     <ng-include src="'./app/partials/default.html'"></ng-include>
 
     <div class="col-md-12" ng-view></div>
@@ -21,7 +22,6 @@
     <script src="./node_modules/angular-route/angular-route.js"></script>
     <script src="./node_modules/bootstrap/dist/js/jquery.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <script src="./app/js/app.js"></script>
 
     <!--everything new file come after this-->

@@ -1,13 +1,19 @@
 /* app css stylesheet */
 
 .top-navbar{
-  position: absolute;
   top:0;
+  left:0;
+  right:0;
+  width: 100%;
 }
 
-.left-menu>ul{
-  top:0;
-  list-style-type: none;
+.left-menu{
+  padding-top: 20px;
   height: 100%;
+}
+
+
+.left-menu>ul{
+  list-style-type: none;
 }
 
