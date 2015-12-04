@@ -5,6 +5,7 @@
 var app = angular.module('NNF', [
     'ngResource',
     'ngRoute',
+    'ui.bootstrap',
     'ui-notification',
     'NNF.services.test',
     'NNF.services.users',

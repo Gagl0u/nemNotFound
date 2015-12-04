@@ -3,6 +3,7 @@
 var module = angular.module('NNF.controller.secouristes', [
     'NNF.services.users',
     'ui-notification',
+    'ui.bootstrap'
 ]);
 
 module.controller('SecoursCtrl', ['$routeParams', '$location',
@@ -56,12 +57,13 @@ module.controller('SecoursCtrl', ['$routeParams', '$location',
 ]);
 
 module.controller('SecoursDetailCtrl', ['$routeParams', '$location',
-    'UsersService', 'Notification',
-    function ($routeParams, $location, UsersService, Notification) {
+    'UsersService', 'Notification', '$uibModal',
+    function ($routeParams, $location, UsersService, Notification,
+        $uibModal) {
         var that = this;
         this.id = $routeParams.secouristeId;
-        
-        this.search='';
+
+        this.search = '';
 
         //for test purpose
         this.crises = [
@@ -129,10 +131,48 @@ module.controller('SecoursDetailCtrl', ['$routeParams', '$location',
             }
         }
 
+        this.newCrise = function () {
+
+            var modalInstance = $uibModal.open({
+                animation: "true",
+                templateUrl: 'crise.modal.html',
+                controller: 'CriseCtrl as criseCtrl',
+                size: 'lg',
+                resolve: {
+                }
+            });
+
+            modalInstance.result.then(function (obj) {
+                that.crises.push(obj);
+            });
+        };
+
         this.init = function () {
             this.exists();
         }
 
         this.init();
     }
+]);
+
+
+module.controller('CriseCtrl', ['$uibModalInstance', function ($uibModalInstance) {
+
+    var that = this;
+    this.name = "";
+    this.location = "";
+
+    this.ok = function () {
+        if (this.name.trim().length < 1 && this.location.trim().length < 1 && this.beginDate == null) {
+            alert('Des éléments sont manquants!');
+        } else {
+            var obj = {};
+            obj.name = this.name;
+            obj.location = this.location;
+            obj.beginDate = this.beginDate.getDate() + '/' + this.beginDate.getMonth() + '/' + this.beginDate.getFullYear();
+            $uibModalInstance.close(obj);
+        }
+    }
+
+}
 ]);

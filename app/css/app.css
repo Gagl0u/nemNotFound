@@ -31,3 +31,11 @@
   border: solid black 1px;
   margin: 10px 10px 10px 10px;
 }
+
+.my-sidebar{
+  border: 0px solid darkslategray;
+}
+
+.my-sidebar>li{
+  border: 1px solid darkslategray;
+}
