@@ -34,7 +34,8 @@ module.controller('SecoursCtrl', ['$routeParams', '$location',
             } else {
                 if (this.login == "User1" && this.password == "User1") {
                     //to test without DB
-                    $location.path('#/secouristes/1');
+                    var path = $location.path();
+                    $location.path(path + '/1');
                 } else {
                     UsersService.get({
                         login: that.login,
@@ -45,7 +46,8 @@ module.controller('SecoursCtrl', ['$routeParams', '$location',
                                 Notification.error({ message: 'You must enter data to connect', title: '<i class="fa fa-exclamation-triangle"></i> Error' });
                                 this.okValues = false;
                             }
-                            $location.path('#/secouristes/' + data.id);
+                            var path = $location.path();
+                            $location.path(path + '/' + data.id);
                         },
                         function (httpResponse) {
 
