@@ -6,6 +6,101 @@ var module = angular.module('NNF.controller.commons', [
     'ui.bootstrap'
 ]);
 
+module.controller('CriseDetailCtrl', ['$routeParams', '$location',
+    'UsersService', 'Notification', '$uibModal',
+    function ($routeParams, $location, UsersService, Notification,
+        $uibModal) {
+        var that = this;
+        this.SecouristeId = $routeParams.secouristeId;
+        this.criseId = $routeParams.criseId;
+
+        //for test purpose
+        this.crises = [
+            {
+                "id": 1,
+                "name": "Crise1",
+                "location": "Malawi",
+                "beginDate": "11/09/10",
+                "informations": "blablablablablablablablablablablablablablablablablabla, blablablablablablablablablablablablabla"
+            },
+            {
+                "id": 2,
+                "name": "Crise2",
+                "location": "Paris",
+                "beginDate": "13/09/15",
+                "informations": "blablablablablablablablablablablablablablablablablabla, blablablablablablablablablablablablabla"
+            },
+            {
+                "id": 3,
+                "name": "Crise3",
+                "location": "New York",
+                "beginDate": "09/11/10",
+                "informations": "blablablablablablablablablablablablablablablablablabla, blablablablablablablablablablablablabla"
+            },
+            {
+                "id": 4,
+                "name": "Crise4",
+                "location": "Hong Kong",
+                "beginDate": "25/02/09",
+                "informations": "blablablablablablablablablablablablablablablablablabla, blablablablablablablablablablablablabla"
+            },
+            {
+                "id": 5,
+                "name": "Crise5",
+                "location": "Brasilia",
+                "beginDate": "03/10/14",
+                "informations": "blablablablablablablablablablablablablablablablablabla, blablablablablablablablablablablablabla"
+            }
+        ];
+
+        this.crise = this.crises[parseInt(this.criseId) - 1];
+
+        Notification.setOptions = {
+            delay: 5000,
+            startTop: 20,
+            startRight: 10,
+            verticalSpacing: 20,
+            horizontalSpacing: 20,
+            positionX: 'center',
+            positionY: 'top'
+        };
+
+
+        this.exists = function () {
+            if ($location.path().indexOf('secouriste') > -1) {
+                if (angular.isNumber(this.id)) {
+                    $location.path('#/');
+                } else {
+                    //to test without DB
+                    if (this.id == 1) {
+                        this.user = {
+                            login: "User1",
+                            password: "User1"
+                        };
+                    } else {
+                        UsersService.exists({
+                            id: that.id
+                        }, {},
+                            function (data) {
+                                if (data == null) {
+                                }
+                            },
+                            function (httpResponse) {
+                            });
+                    }
+                }
+            } else {
+                this.user = null;
+            }
+        }
+
+        this.init = function () {
+            this.exists();
+        }
+
+        this.init();
+    }
+]);
 
 module.controller('CriseCtrl', ['$routeParams', '$location',
     'UsersService', 'Notification', '$uibModal',
@@ -19,26 +114,31 @@ module.controller('CriseCtrl', ['$routeParams', '$location',
         //for test purpose
         this.crises = [
             {
+                "id": 1,
                 "name": "Crise1",
                 "location": "Malawi",
                 "beginDate": "11/09/10"
             },
             {
+                "id": 2,
                 "name": "Crise2",
                 "location": "Paris",
                 "beginDate": "13/09/15"
             },
             {
+                "id": 3,
                 "name": "Crise3",
                 "location": "New York",
                 "beginDate": "09/11/10"
             },
             {
+                "id": 4,
                 "name": "Crise4",
                 "location": "Hong Kong",
                 "beginDate": "25/02/09"
             },
             {
+                "id": 5,
                 "name": "Crise5",
                 "location": "Brasilia",
                 "beginDate": "03/10/14"
@@ -86,8 +186,12 @@ module.controller('CriseCtrl', ['$routeParams', '$location',
             }
         }
 
-        this.newCrise = function () {
+        this.redirect = function (id) {
+            var path = $location.path();
+            $location.path(path + "/" + id);
+        }
 
+        this.newCrise = function () {
             var modalInstance = $uibModal.open({
                 animation: "true",
                 templateUrl: 'crise.modal.html',

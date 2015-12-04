@@ -30,11 +30,17 @@ app.config(
                 controller: 'CriseCtrl',
                 controllerAs: 'criseCtrl'
             })
+            .when('/secouristes/:secouristeId/crises/:criseId', {
+                templateUrl: 'app/partials/crises/crisesDetail.html',
+                controller: 'CriseDetailCtrl',
+                controllerAs: 'criseDetailCtrl'
+            })
             .when('/populations', {
                 templateUrl: 'app/partials/populations/populations.html',
                 controller: 'PopulationsCtrl',
                 controllerAs: 'populationsCtrl'
             })
+
             .otherwise({
                 redirectTo: '/'
             });

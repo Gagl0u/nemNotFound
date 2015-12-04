@@ -13,7 +13,7 @@
 			</br>
 			<input class="form-control" ng-model="criseCtrl.searchText" placeholder="Rechercher une crise">
 			</br>
-			<div class="col-xs-12 col-sm-6 col-md-3 crise-block" ng-repeat="crise in criseCtrl.crises | filter: criseCtrl.searchText">
+			<div class="col-xs-12 col-sm-6 col-md-3 crise-block clickable" ng-repeat="crise in criseCtrl.crises | filter: criseCtrl.searchText" ng-click="criseCtrl.redirect(crise.id)">
 				<div>Nom : {{crise.name}}</div>
 				<div>Lieux : {{crise.location}}</div>
 				<div>Date de début : {{crise.beginDate}}</div>

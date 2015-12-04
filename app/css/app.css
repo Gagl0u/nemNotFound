@@ -39,3 +39,7 @@
 .my-sidebar>li{
   border: 1px solid darkslategray;
 }
+
+.clickable {
+  cursor : pointer; 
+}
