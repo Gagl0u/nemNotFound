@@ -34,8 +34,9 @@ app.config(
                 controller: 'PopulationsCtrl',
                 controllerAs: 'populationsCtrl'
             })
-            .otherwise({
-                redirectTo: '/'
-            });
+            // .otherwise({
+            //     redirectTo: '/'
+            // })
+            ;
     }
     );
