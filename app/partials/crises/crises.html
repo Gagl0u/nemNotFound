@@ -1,19 +1,19 @@
 <div class="row">
 	<div class="main-box clearfix">
 		<div class="clearfix">
-			<h3>Welcome {{secoursDetailCtrl.user.login}}</h3>
+			<h3 ng-if="criseCtrl.user">Welcome {{criseCtrl.user.login}}</h3>
 		</div>
 		<div>
 			<div class="clearfix">
 				<div class="pull-left">Liste des crises</div>
 				<div class="pull-right">
-					<button class="btn btn-primary" ng-click="secoursDetailCtrl.newCrise()">Ajouter une crise</button>
+					<button class="btn btn-primary" ng-click="criseCtrl.newCrise()">Ajouter une crise</button>
 				</div>
 			</div>
 			</br>
-			<input class="form-control" ng-model="secoursDetailCtrl.searchText" placeholder="Rechercher une crise">
+			<input class="form-control" ng-model="criseCtrl.searchText" placeholder="Rechercher une crise">
 			</br>
-			<div class="col-xs-12 col-sm-6 col-md-3 crise-block" ng-repeat="crise in secoursDetailCtrl.crises | filter: secoursDetailCtrl.searchText">
+			<div class="col-xs-12 col-sm-6 col-md-3 crise-block" ng-repeat="crise in criseCtrl.crises | filter: criseCtrl.searchText">
 				<div>Nom : {{crise.name}}</div>
 				<div>Lieux : {{crise.location}}</div>
 				<div>Date de début : {{crise.beginDate}}</div>
@@ -28,19 +28,19 @@
 	<div class="modal-body">
 		<div class="form-group">
 			<div>Nom de la crise</div>
-			<input class="form-control" type="text" ng-model="criseCtrl.name" />
+			<input class="form-control" type="text" ng-model="criseModalCtrl.name" />
 		</div>
 		<div class="form-group">
 			<div>Lieux</div>
-			<input class="form-control" type="text" ng-model="criseCtrl.location" />
+			<input class="form-control" type="text" ng-model="criseModalCtrl.location" />
 		</div>
 		<div class="form-group">
 			<div>Date de début</div>
-			<input type="text" uib-datepicker="dd/MM/yyyy" ng-model="criseCtrl.beginDate" />
+			<input type="text" uib-datepicker="dd/MM/yyyy" ng-model="criseModalCtrl.beginDate" />
 		</div>
 	</div>
 	<div class="modal-footer">
-		<button class="btn btn-primary" type="button" ng-click="criseCtrl.ok()">OK</button>
+		<button class="btn btn-primary" type="button" ng-click="criseModalCtrl.ok()">OK</button>
 		<button class="btn btn-warning" type="button" ng-click="$dismiss()">Cancel</button>
 	</div>
 </script>

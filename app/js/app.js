@@ -10,7 +10,8 @@ var app = angular.module('NNF', [
     'NNF.services.test',
     'NNF.services.users',
     'NNF.controller.populations',
-    'NNF.controller.secouristes'
+    'NNF.controller.secouristes',
+    'NNF.controller.commons'
 ]);
 
 app.config(
@@ -25,7 +26,7 @@ app.config(
                 controllerAs: 'secoursCtrl'
             })
             .when('/secouristes/:secouristeId/crises', {
-                templateUrl: 'app/partials/secouristes/crises.html',
+                templateUrl: 'app/partials/crises/crises.html',
                 controller: 'CriseCtrl',
                 controllerAs: 'criseCtrl'
             })
