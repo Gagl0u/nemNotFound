@@ -9,7 +9,6 @@ var app = angular.module('NNF', [
     'ui-notification',
     'NNF.services.test',
     'NNF.services.users',
-    'NNF.controller.populations',
     'NNF.controller.secouristes',
     'NNF.controller.commons',
     'NNF.controller.fiches'
@@ -41,10 +40,20 @@ app.config(
                 controller: 'FicheCtrl',
                 controllerAs: 'ficheCtrl'
             })
-            .when('/populations', {
-                templateUrl: 'app/partials/populations/populations.html',
-                controller: 'PopulationsCtrl',
-                controllerAs: 'populationsCtrl'
+            .when('/populations/crises', {
+                templateUrl: 'app/partials/crises/crises.html',
+                controller: 'CriseCtrl',
+                controllerAs: 'criseCtrl'
+            })
+            .when('/populations/crises/:criseId', {
+                templateUrl: 'app/partials/crises/crisesDetail.html',
+                controller: 'CriseDetailCtrl',
+                controllerAs: 'criseDetailCtrl'
+            })
+            .when('/populations/crises/:criseId/fiches', {
+                templateUrl: 'app/partials/fiches/fiches.html',
+                controller: 'FicheCtrl',
+                controllerAs: 'ficheCtrl'
             })
             .otherwise({
                 redirectTo: '/'
