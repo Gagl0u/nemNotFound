@@ -23,7 +23,7 @@ app.config(
                 controller: 'SecoursCtrl',
                 controllerAs: 'secoursCtrl'
             })
-            .when('/secouristes/:SecouristeId', {
+            .when('/secouristes/:secouristeId', {
                 templateUrl: 'app/partials/secouristes/secouristesDetail.html',
                 controller: 'SecoursDetailCtrl',
                 controllerAs: 'secoursDetailCtrl'

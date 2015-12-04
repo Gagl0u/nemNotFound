@@ -10,6 +10,10 @@ module.factory('UsersService', ['$resource',
             get: {
                 method: 'GET',
                 url: 'http://nuitinfo2015-nemnotfound.azurewebsites.net/api/users/:login/:pwd'
+            },
+            exists: {
+                method: 'GET',
+                url: 'http://nuitinfo2015-nemnotfound.azurewebsites.net/api/users/:id'
             }
         });
     }

@@ -25,3 +25,9 @@
   width:100%;
   background-color: #e1e1e1;
 }
+
+.crise-block{
+  background-color: lightcoral;
+  border: solid black 1px;
+  margin: 10px 10px 10px 10px;
+}

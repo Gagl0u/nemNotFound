@@ -31,20 +31,25 @@ module.controller('SecoursCtrl', ['$routeParams', '$location',
                 Notification.error({ message: 'You must enter data to connect', title: '<i class="fa fa-exclamation-triangle"></i> Error' });
                 this.okValues = false;
             } else {
-                UsersService.get({
-                    login: that.login,
-                    pwd: that.password
-                }, {},
-                    function (data) {
-                        if (data == null) {
-                            Notification.error({ message: 'You must enter data to connect', title: '<i class="fa fa-exclamation-triangle"></i> Error' });
-                            this.okValues = false;
-                        }
-                        $location.path('#/secouristes/' + data.id);
-                    },
-                    function (httpResponse) {
+                if (this.login == "User1" && this.password == "User1") {
+                    //to test without DB
+                    $location.path('#/secouristes/1');
+                } else {
+                    UsersService.get({
+                        login: that.login,
+                        pwd: that.password
+                    }, {},
+                        function (data) {
+                            if (data == null) {
+                                Notification.error({ message: 'You must enter data to connect', title: '<i class="fa fa-exclamation-triangle"></i> Error' });
+                                this.okValues = false;
+                            }
+                            $location.path('#/secouristes/' + data.id);
+                        },
+                        function (httpResponse) {
 
-                    });
+                        });
+                }
             }
         }
     }
@@ -55,6 +60,37 @@ module.controller('SecoursDetailCtrl', ['$routeParams', '$location',
     function ($routeParams, $location, UsersService, Notification) {
         var that = this;
         this.id = $routeParams.secouristeId;
+        
+        this.search='';
+
+        //for test purpose
+        this.crises = [
+            {
+                "name": "Crise1",
+                "location": "Malawi",
+                "beginDate": "11/09/10"
+            },
+            {
+                "name": "Crise2",
+                "location": "Paris",
+                "beginDate": "13/09/15"
+            },
+            {
+                "name": "Crise3",
+                "location": "New York",
+                "beginDate": "09/11/10"
+            },
+            {
+                "name": "Crise4",
+                "location": "Hong Kong",
+                "beginDate": "25/02/09"
+            },
+            {
+                "name": "Crise5",
+                "location": "Brasilia",
+                "beginDate": "03/10/14"
+            }
+        ];
 
         Notification.setOptions = {
             delay: 5000,
@@ -68,25 +104,33 @@ module.controller('SecoursDetailCtrl', ['$routeParams', '$location',
 
 
         this.exists = function () {
-            if (isNan(this.id)) {
+            if (angular.isNumber(this.id)) {
                 $location.path('#/secouristes');
             } else {
-                UsersService.exists({
-                    id: that.id
-                }, {},
-                    function (data) {
-                        if (data == null) {
+                //to test without DB
+                if (this.id == 1) {
+                    this.user = {
+                        login: "User1",
+                        password: "User1"
+                    };
+                } else {
+                    UsersService.exists({
+                        id: that.id
+                    }, {},
+                        function (data) {
+                            if (data == null) {
+                                $location.path('#/secouristes');
+                            }
+                        },
+                        function (httpResponse) {
                             $location.path('#/secouristes');
-                        }
-                    },
-                    function (httpResponse) {
-                        $location.path('#/secouristes');
-                    });
+                        });
+                }
             }
         }
 
         this.init = function () {
-
+            this.exists();
         }
 
         this.init();
