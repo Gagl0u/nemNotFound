@@ -24,19 +24,18 @@ app.config(
                 controller: 'SecoursCtrl',
                 controllerAs: 'secoursCtrl'
             })
-            .when('/secouristes/:secouristeId', {
-                templateUrl: 'app/partials/secouristes/secouristesDetail.html',
-                controller: 'SecoursDetailCtrl',
-                controllerAs: 'secoursDetailCtrl'
+            .when('/secouristes/:secouristeId/crises', {
+                templateUrl: 'app/partials/secouristes/crises.html',
+                controller: 'CriseCtrl',
+                controllerAs: 'criseCtrl'
             })
             .when('/populations', {
                 templateUrl: 'app/partials/populations/populations.html',
                 controller: 'PopulationsCtrl',
                 controllerAs: 'populationsCtrl'
             })
-            // .otherwise({
-            //     redirectTo: '/'
-            // })
-            ;
+            .otherwise({
+                redirectTo: '/'
+            });
     }
     );
