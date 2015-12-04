@@ -89,6 +89,6 @@ module.controller('SecoursDetailCtrl', ['$routeParams', '$location',
 
         }
 
-        this.init)(;)
+        this.init();
     }
 ]);
