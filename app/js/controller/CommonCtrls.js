@@ -7,9 +7,9 @@ var module = angular.module('NNF.controller.commons', [
 ]);
 
 module.controller('CriseDetailCtrl', ['$routeParams', '$location',
-    'UsersService', 'Notification', '$uibModal',
+    'UsersService', 'Notification', '$uibModal', '$scope',
     function ($routeParams, $location, UsersService, Notification,
-        $uibModal) {
+        $uibModal, $scope) {
         var that = this;
         this.SecouristeId = $routeParams.secouristeId;
         this.criseId = $routeParams.criseId;
@@ -54,6 +54,36 @@ module.controller('CriseDetailCtrl', ['$routeParams', '$location',
         ];
 
         this.crise = this.crises[parseInt(this.criseId) - 1];
+
+
+        this.Paris = {
+            lat: 52.52,
+            lng: 13.40,
+            zoom: 14
+        };
+        this.layers = {
+            baselayers: {
+                googleTerrain: {
+                    name: 'Google Terrain',
+                    layerType: 'TERRAIN',
+                    type: 'google'
+                },
+                googleHybrid: {
+                    name: 'Google Hybrid',
+                    layerType: 'HYBRID',
+                    type: 'google'
+                },
+                googleRoadmap: {
+                    name: 'Google Streets',
+                    layerType: 'ROADMAP',
+                    type: 'google'
+                }
+            }
+        };
+        this.defaults = {
+            scrollWheelZoom: false
+        };
+
 
         Notification.setOptions = {
             delay: 5000,

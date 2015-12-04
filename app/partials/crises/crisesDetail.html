@@ -3,8 +3,9 @@
 	<div class="main-box clearfix">
 		<div class="row">
 			<div class="">Consulter la carte</div>
-			<div class="form-group crise-block">
-				</br>Carte
+			<div class="">
+				<iframe src="//www.google.fr/maps/" style="max-width:800px;" frameborder="0"></iframe>
+				<leaflet ng-attr-center="{{criseDetailCtrl.Paris}}" ng-attr-layers="{{criseDetailCtrl.layers}}"></leaflet>
 			</div>
 		</div>
 		<div class="row">
