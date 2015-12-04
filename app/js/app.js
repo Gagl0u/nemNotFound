@@ -11,7 +11,8 @@ var app = angular.module('NNF', [
     'NNF.services.users',
     'NNF.controller.populations',
     'NNF.controller.secouristes',
-    'NNF.controller.commons'
+    'NNF.controller.commons',
+    'NNF.controller.fiches'
 ]);
 
 app.config(
@@ -35,12 +36,16 @@ app.config(
                 controller: 'CriseDetailCtrl',
                 controllerAs: 'criseDetailCtrl'
             })
+            .when('/secouristes/:secouristeId/crises/:criseId/fiches', {
+                templateUrl: 'app/partials/fiches/fiches.html',
+                controller: 'FicheCtrl',
+                controllerAs: 'ficheCtrl'
+            })
             .when('/populations', {
                 templateUrl: 'app/partials/populations/populations.html',
                 controller: 'PopulationsCtrl',
                 controllerAs: 'populationsCtrl'
             })
-
             .otherwise({
                 redirectTo: '/'
             });

@@ -1,0 +1,45 @@
+<div class="row">
+	<div class="main-box clearfix">
+		<div class="clearfix">
+		</div>
+		<div>
+			<div class="clearfix">
+				<div class="pull-left">Liste des personnes recherchées</div>
+				<div class="pull-right">
+					<button class="btn btn-primary" ng-click="ficheCtrl.newFiche()">Ajouter une fiche</button>
+				</div>
+			</div>
+			</br>
+			<input class="form-control" ng-model="ficheCtrl.searchText" placeholder="Rechercher une personne">
+			</br>
+			<div class="col-xs-12 col-sm-6 col-md-3 crise-block-2 clickable" ng-repeat="fiche in ficheCtrl.fiches | filter: ficheCtrl.searchText">
+				<div>Nom : {{fiche.name}}</div>
+				<div>Adresse : {{fiche.adress}}</div>
+				<div>Description : {{fiche.description}}</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/ng-template" id="fiche.modal.html">
+	<div class="modal-header">
+		<h3 class="modal-title">Ajouter une crise</h3>
+	</div>
+	<div class="modal-body">
+		<div class="form-group">
+			<div>Nom de la personne</div>
+			<input class="form-control" type="text" ng-model="ficheModalCtrl.name" />
+		</div>
+		<div class="form-group">
+			<div>Adresse</div>
+			<input class="form-control" type="text" ng-model="ficheModalCtrl.adress" />
+		</div>
+		<div class="form-group">
+			<div>Description</div>
+			<input class="form-control" type="text" ng-model="ficheModalCtrl.description" />
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" type="button" ng-click="ficheModalCtrl.ok()">OK</button>
+		<button class="btn btn-warning" type="button" ng-click="$dismiss()">Cancel</button>
+	</div>
+</script>

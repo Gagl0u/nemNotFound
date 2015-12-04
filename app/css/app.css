@@ -32,6 +32,12 @@
   margin: 10px 10px 10px 10px;
 }
 
+.crise-block-2{
+  background-color: lightcoral;
+  border: solid black 1px;
+  margin: 5px 5px 5px 5px;
+}
+
 .my-sidebar{
   border: 0px solid darkslategray;
 }

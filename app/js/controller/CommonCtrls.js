@@ -141,7 +141,17 @@ module.controller('CriseDetailCtrl', ['$routeParams', '$location',
                 zoom: 8,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             }
-            var map = new google.maps.Map(mapCanvas, mapOptions)
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(that.crise.lat, that.crise.long),
+                map: map
+            });
+        }
+
+        this.redirect = function (id) {
+            var path = $location.path();
+            $location.path(path + "/fiches");
         }
 
         this.init = function () {
