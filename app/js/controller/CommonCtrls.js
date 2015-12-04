@@ -147,6 +147,8 @@ module.controller('CriseDetailCtrl', ['$routeParams', '$location',
                 position: new google.maps.LatLng(that.crise.lat, that.crise.long),
                 map: map
             });
+
+            var infowindow = new google.maps.InfoWindow();
         }
 
         this.redirect = function (id) {
