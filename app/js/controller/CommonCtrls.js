@@ -19,37 +19,47 @@ module.controller('CriseDetailCtrl', ['$routeParams', '$location',
             {
                 "id": 1,
                 "name": "Crise1",
-                "location": "Malawi",
+                "location": "Lilongwe",
                 "beginDate": "11/09/10",
-                "informations": "blablablablablablablablablablablablablablablablablabla, blablablablablablablablablablablablabla"
+                "informations": "blablablablablablablablablablablablablablablablablabla, blablablablablablablablablablablablabla",
+                "lat": -13.9632306,
+                "long": 33.7118474
             },
             {
                 "id": 2,
                 "name": "Crise2",
                 "location": "Paris",
                 "beginDate": "13/09/15",
-                "informations": "blablablablablablablablablablablablablablablablablabla, blablablablablablablablablablablablabla"
+                "informations": "blablablablablablablablablablablablablablablablablabla, blablablablablablablablablablablablabla",
+                "lat": 48.8589506,
+                "long": 2.2773456
             },
             {
                 "id": 3,
                 "name": "Crise3",
                 "location": "New York",
                 "beginDate": "09/11/10",
-                "informations": "blablablablablablablablablablablablablablablablablabla, blablablablablablablablablablablablabla"
+                "informations": "blablablablablablablablablablablablablablablablablabla, blablablablablablablablablablablablabla",
+                "lat": 40.7058249,
+                "long": -74.1184305
             },
             {
                 "id": 4,
                 "name": "Crise4",
                 "location": "Hong Kong",
                 "beginDate": "25/02/09",
-                "informations": "blablablablablablablablablablablablablablablablablabla, blablablablablablablablablablablablabla"
+                "informations": "blablablablablablablablablablablablablablablablablabla, blablablablablablablablablablablablabla",
+                "lat": 22.3579352,
+                "long": 113.980589
             },
             {
                 "id": 5,
                 "name": "Crise5",
                 "location": "Brasilia",
                 "beginDate": "03/10/14",
-                "informations": "blablablablablablablablablablablablablablablablablabla, blablablablablablablablablablablablabla"
+                "informations": "blablablablablablablablablablablablablablablablablabla, blablablablablablablablablablablablabla",
+                "lat": -15.7213868,
+                "long": -48.0786645
             }
         ];
 
@@ -124,8 +134,20 @@ module.controller('CriseDetailCtrl', ['$routeParams', '$location',
             }
         }
 
+        this.initialize = function () {
+            var mapCanvas = document.getElementById('map');
+            var mapOptions = {
+                center: new google.maps.LatLng(that.crise.lat, that.crise.long),
+                zoom: 8,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            var map = new google.maps.Map(mapCanvas, mapOptions)
+        }
+
         this.init = function () {
             this.exists();
+            this.initialize();
+            google.maps.event.addDomListener(window, 'load', this.initialize);
         }
 
         this.init();
