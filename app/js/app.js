@@ -5,6 +5,7 @@
 var app = angular.module('NNF', [
     'ngResource',
     'ngRoute',
+    'ui-notification',
     'NNF.services.test',
     'NNF.services.users',
     'NNF.controller.populations',
@@ -21,6 +22,11 @@ app.config(
                 templateUrl: 'app/partials/secouristes/secouristes.html',
                 controller: 'SecoursCtrl',
                 controllerAs: 'secoursCtrl'
+            })
+            .when('/secouristes/:SecouristeId', {
+                templateUrl: 'app/partials/secouristes/secouristesDetail.html',
+                controller: 'SecoursDetailCtrl',
+                controllerAs: 'secoursDetailCtrl'
             })
             .when('/populations', {
                 templateUrl: 'app/partials/populations/populations.html',

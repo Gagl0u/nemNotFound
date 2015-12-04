@@ -4,12 +4,12 @@ var module = angular.module('NNF.services.users', [
     'ngResource'
 ]);
 
-module.factory('UsersService', ['$resource',
+module.factory('UsersService', ['$resource', 
     function ($resource) {
-        return $resource('http://nuitinfo2015-nemnotfound.azurewebsites.net/api/', {}, {
+        return $resource('http://nuitinfo2015-nemnotfound.azurewebsites.net/api/users', {}, {
             get: {
                 method: 'GET',
-				url: 'http://nuitinfo2015-nemnotfound.azurewebsites.net/api/:login/:pwd'
+                url: 'http://nuitinfo2015-nemnotfound.azurewebsites.net/api/users/:login/:pwd'
             }
         });
     }

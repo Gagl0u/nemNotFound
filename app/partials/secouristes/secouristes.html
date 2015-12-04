@@ -4,15 +4,15 @@
 			<h3>Connection</h3>
 		</div>
 		<form>
-			<div class="form-group" ng-class="secoursCtrl.connect? '':'has-error'">
+			<div class="form-group" ng-class="secoursCtrl.okValues? '':'has-error'">
 				<div>Login</div>
 				<input type="text" class="form-control" ng-model="secoursCtrl.login" placeholder="Entrer le login">
 			</div>
-			<div class="form-group" ng-class="secoursCtrl.connect? '':'has-error'">
+			<div class="form-group" ng-class="secoursCtrl.okValues? '':'has-error'">
 				<div>Mot de passe</div>
 				<input type="password" class="form-control" ng-model="secoursCtrl.password" placeholder="Entrer le mot de passe">
 			</div>
-			<button class="btn btn-primary">Connect</button>
+			<button class="btn btn-primary" ng-click="secoursCtrl.connect()">Connect</button>
 		</form>
 	</div>
 </div>
